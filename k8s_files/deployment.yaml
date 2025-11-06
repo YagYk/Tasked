@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasked-app
+  labels:
+    app: tasked-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tasked-app
+  template:
+    metadata:
+      labels:
+        app: tasked-app
+    spec:
+      containers:
+        - name: tasked-web
+          image: 215764924067.dkr.ecr.us-east-1.amazonaws.com/tasked-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 25
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 60
+            periodSeconds: 20
+            timeoutSeconds: 3
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+...
