@@ -41,7 +41,7 @@ module "eks" {
       max_size     = 4
       desired_size = 2
 
-      instance_types = ["c7i-flex.large"]
+      instance_types = ["t3.small"]
       capacity_type  = "SPOT"
 
       tags = {
