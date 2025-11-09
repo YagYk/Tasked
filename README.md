@@ -1,5 +1,5 @@
 # Tasked Productivity Platform
-![Pipeline Overview](./src/Overview.png)
+![Pipeline Overview]
 
 ## Project Overview
 Tasked delivers a calm, high-clarity productivity experience backed by the same end-to-end DevOps toolchain. The frontend helps teams capture work, visualize momentum, and celebrate wins with a sleek task board, focus lists, and progress analytics. The supporting infrastructure automates build, security, containerization, and multi-environment delivery across AWS.
@@ -251,5 +251,4 @@ The development server runs at [http://localhost:3000](http://localhost:3000) wi
 ---
 # Tasked
 # TaskedApp
-#   T a s k e d  
- 
+#
